@@ -1,45 +1,34 @@
-# Omnicalc
-% of total is...
-Bill, Tip %, no. of people => tip amount, total per person
-Discount: before, discount => after, savings
-small quantity, price, bulk quantity, price => price per unit, bulk savings
-% increase of number => total, difference
-% decrease of number => total, difference
-fraction to percentage
-percentage to fraction
-Sales Tax
-Compound interest
-Loan payment
-Cumulative growth
-Inflation
-Doubling time
+## Omnicalc
 
-1. =DAYS
-This is a handy formula to calculate the number of days between two dates (so there’s no worries about how many days are in each month of the range).
+Starting from the mockups in the calcuations controller, recreate the following web app:
 
-Example: End Date October 12, 2015 minus Start Date March 31, 2015 = 195 days
+https://omnicalc-target.herokuapp.com/
 
-Formula: =DAYS(A30,A29)
+# Omnicalc Mockups
 
-2. =NETWORKDAYS
-This similar formula calculates the number of workdays (i.e., a five-day workweek) within a specified timeframe. It also includes an option to subtract the holidays from the total, but this must be entered as a range of dates.
+The goal of this project is to
+- practice using Bootstrap to layout and style our pages
+- practice Ruby basics
+- challenge yourself with new Ruby topics
 
-Example: Start Date March 31, 2015 minus End Date October 12, 2015 = 140 days
+## Setup
 
-Formula: =NETWORKDAYS(A33,A34)
+ - Fork and clone this repository.
+ - Open the entire folder in Sublime.
+ - In Chrome, open the file you are working on in one tab and your target in another tab.
 
-sum, max, min
+## Steps
 
-word count, character count w/ w/o spaces, occurrence of word/char
+ - Create the basic grid skeleton. [Shoelace.io](http://shoelace.io/) may come in handy.
+ - Add the [list of links](http://getbootstrap.com/components/#list-group) to the left side. Check the /app/views/layouts/application.html.erb file for the location of the links.
+ - Add a [panel](http://getbootstrap.com/components/#panels-heading) to the right side.
+ - Add content to the panel body; either a [form](http://getbootstrap.com/css/#forms-horizontal) or a [description list](http://getbootstrap.com/css/#horizontal-description), depending on which page you are working on.
+ - Add the [navbar](http://getbootstrap.com/components/#navbar) to the top.
+ - Include [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/icons/) where appropriate.
+ - Make it [Responsive](http://getbootstrap.com/css/#responsive-utilities):
+  - On extra-small and small screens, hide the left nav.
+  - On medium and large screens, hide the navbar links (since the left nav is visible).
+ - When a form submit button is clicked, make it so that you end up at the corresponding results page.
+ - Experiment with different [Bootswatches](https://bootswatch.com/).
 
-convert shoe sizes
-
-
-Day => Date converter, day of month, day of year
-
-
-
-
-
-
-
+ One page was left fully mocked up for you to use as an example. Feel free to check the source on the Heroku example as well.
