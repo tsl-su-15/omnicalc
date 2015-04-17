@@ -13,15 +13,13 @@ class CalculationsController < ApplicationController
         # The special word the user input is in the string @special_word.
         # ========================================================
 
-        @word_count = @text.split.count
+        @word_count = "Replace this string with your answer"
 
-        @character_count_with_spaces = @text.length
+        @character_count_with_spaces = "Replace this string with your answer"
 
-        @character_count_without_spaces = @text.gsub(" ", "").length
+        @character_count_without_spaces = "Replace this string with your answer"
 
-        normalized_text = @text.downcase.gsub(/[^a-z0-9\s]/i, '')
-
-        @occurrences = normalized_text.split.count(@special_word)
+        @occurrences = "Replace this string with your answer"
         render 'word_count'
     end
 
@@ -36,15 +34,15 @@ class CalculationsController < ApplicationController
 
         # =====================================================
         # Your code goes below.
-        # The annual percentage rate the user input is in the decimal @apr.
-        # The number of years the user input is in the integer @years.
-        # The principal value the user input is in the decimal @principal.
+        # You can use this formula for reference:
+        # http://www.financeformulas.net/Loan_Payment_Formula.html
         # =====================================================
 
-        rate = @apr / 100 / 12
-        nper = @years * 12
+        present_value = @principal
+        rate_per_period = @apr / 100 / 12
+        number_periods = @years * 12
 
-        @monthly_payment = (rate * @principal)/(1 - (1 + rate)**-nper)
+        @monthly_payment = "Replace this string with your answer"
     end
 
     def time_between_form
@@ -63,13 +61,13 @@ class CalculationsController < ApplicationController
         # The principal value the user input is in the decimal @principal.
         # =====================================================
 
-        @seconds = @ending - @starting
-        @minutes = @seconds / 1.minute
-        @hours = @seconds / 1.hour
-        @days = @seconds / 1.day
-        @weeks = @seconds / 1.week
-        @months = @seconds / 1.month
-        @years = @seconds / 1.year
+        @seconds = "Replace this string with your answer"
+        @minutes = "Replace this string with your answer"
+        @hours = "Replace this string with your answer"
+        @days = "Replace this string with your answer"
+        @weeks = "Replace this string with your answer"
+        @months = "Replace this string with your answer"
+        @years = "Replace this string with your answer"
         render 'time_between'
     end
 
@@ -85,47 +83,26 @@ class CalculationsController < ApplicationController
         # The numbers the user input are in the array @numbers.
         # =====================================================
 
-        @sorted_numbers = @numbers.sort
+        @sorted_numbers = "Replace this string with your answer"
 
-        @count = @numbers.count
+        @count = "Replace this string with your answer"
 
-        @minimum = @numbers.min
+        @minimum = "Replace this string with your answer"
 
-        @maximum = @numbers.max
+        @maximum = "Replace this string with your answer"
 
-        @range = @maximum - @minimum
+        @range = "Replace this string with your answer"
 
-        if @count.odd?
-          @median = @sorted_numbers[@count / 2]
-        else
-          @median = (@sorted_numbers[(@count / 2) - 1] + @sorted_numbers[(@count / 2)]) / 2
-        end
+        @median = "Replace this string with your answer"
 
-        @sum = @numbers.sum
+        @sum = "Replace this string with your answer"
 
-        @mean = @sum / @count
+        @mean = "Replace this string with your answer"
 
-        squared_differences = []
+        @variance = "Replace this string with your answer"
 
-        @numbers.each do |num|
-          difference = num - @mean
-          squared_difference = difference ** 2
-          squared_differences.push(squared_difference)
-        end
+        @standard_deviation = "Replace this string with your answer"
 
-        @variance = squared_differences.sum / @count
-
-        @standard_deviation = Math.sqrt(@variance)
-
-        occurrences = Hash.new(0)
-
-        @numbers.each do |num|
-          occurrences[num] = occurrences[num] + 1
-        end
-
-        sorted_occurrences = occurrences.sort_by { |k, v| v }
-
-        @mode = sorted_occurrences.last.first
         render  'descriptive_statistics'
     end
 end
