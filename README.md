@@ -1,15 +1,13 @@
-## Omnicalc
-
-Starting from the mockups in the calcuations controller, recreate the following web app:
-
-https://omnicalc-target.herokuapp.com/
-
-# Omnicalc Mockups
+# Omnicalc
 
 The goal of this project is to
 - practice using Bootstrap to layout and style our pages
 - practice Ruby basics
 - challenge yourself with new Ruby topics
+
+Starting from the mockups in the calcuations controller, recreate the following web app:
+
+https://omnicalc-target.herokuapp.com/
 
 ## Setup
 
