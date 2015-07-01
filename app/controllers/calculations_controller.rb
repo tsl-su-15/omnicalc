@@ -13,14 +13,16 @@ class CalculationsController < ApplicationController
         # The special word the user input is in the string @special_word.
         # ========================================================
 
-        @word_count = "Replace this string with your answer"
+        @word_count = @text.split.length
 
-        @character_count_with_spaces = "Replace this string with your answer"
+        @character_count_with_spaces = @text.length
 
-        @character_count_without_spaces = "Replace this string with your answer"
+        @character_count_without_spaces = @text.gsub(" ",'').length
+        # @character_count_without_spaces = @character_count_with_spaces - (@word_count - 1)
 
-        @occurrences = "Replace this string with your answer"
-        render 'word_count'
+        sanitized_text = @text.downcase
+        sanitized_word = @special_word.downcase
+        @occurrences = sanitized_text.split.count(sanitized_word)
     end
 
     def loan_payment_form
@@ -61,13 +63,13 @@ class CalculationsController < ApplicationController
         # The principal value the user input is in the decimal @principal.
         # =====================================================
 
-        @seconds = "Replace this string with your answer"
-        @minutes = "Replace this string with your answer"
-        @hours = "Replace this string with your answer"
-        @days = "Replace this string with your answer"
-        @weeks = "Replace this string with your answer"
-        @months = "Replace this string with your answer"
-        @years = "Replace this string with your answer"
+        @seconds = @ending - @starting
+        @minutes = @seconds/1.minute
+        @hours = @seconds/1.hour
+        @days = @seconds/1.day
+        @weeks = @seconds/1.week
+        @months = @seconds/1.month
+        @years = @seconds/1.year
         render 'time_between'
     end
 
