@@ -44,7 +44,7 @@ class CalculationsController < ApplicationController
         rate_per_period = @apr / 100 / 12
         number_periods = @years * 12
 
-        @monthly_payment = "Replace this string with your answer"
+        @monthly_payment = (rate_per_period*present_value)/(1 - (1+rate_per_period)**(-number_periods))
     end
 
     def time_between_form
@@ -78,33 +78,12 @@ class CalculationsController < ApplicationController
     end
 
     def descriptive_statistics
-        @numbers = params[:list_of_numbers].gsub(',', '').split.map(&:to_f)
-
-        # =====================================================
-        # Your code goes below.
-        # The numbers the user input are in the array @numbers.
-        # =====================================================
-
-        @sorted_numbers = "Replace this string with your answer"
-
-        @count = "Replace this string with your answer"
-
-        @minimum = "Replace this string with your answer"
-
-        @maximum = "Replace this string with your answer"
-
-        @range = "Replace this string with your answer"
-
-        @median = "Replace this string with your answer"
-
-        @sum = "Replace this string with your answer"
-
-        @mean = "Replace this string with your answer"
-
-        @variance = "Replace this string with your answer"
-
-        @standard_deviation = "Replace this string with your answer"
+        @stat = Stat.new(params[:list_of_numbers])
 
         render  'descriptive_statistics'
+    end
+
+    def range(max, min)
+        return max - min
     end
 end
