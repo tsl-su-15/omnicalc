@@ -4,25 +4,8 @@ class CalculationsController < ApplicationController
     end
 
     def word_count
-        @text = params[:user_text]
-        @special_word = params[:user_word]
-
-        # ========================================================
-        # Your code goes below.
-        # The text the user input is in the string @text.
-        # The special word the user input is in the string @special_word.
-        # ========================================================
-
-        @word_count = @text.split.length
-
-        @character_count_with_spaces = @text.length
-
-        @character_count_without_spaces = @text.gsub(" ",'').length
-        # @character_count_without_spaces = @character_count_with_spaces - (@word_count - 1)
-
-        sanitized_text = @text.downcase
-        sanitized_word = @special_word.downcase
-        @occurrences = sanitized_text.split.count(sanitized_word)
+        @word_stat = WordStat.new(params[:user_text],
+                                    params[:user_word])
     end
 
     def loan_payment_form
@@ -30,21 +13,10 @@ class CalculationsController < ApplicationController
     end
 
     def loan_payment
-        @apr = params[:annual_percentage_rate].to_f
-        @years = params[:number_of_years].to_i
-        @principal = params[:principal_value].to_f
-
-        # =====================================================
-        # Your code goes below.
-        # You can use this formula for reference:
-        # http://www.financeformulas.net/Loan_Payment_Formula.html
-        # =====================================================
-
-        present_value = @principal
-        rate_per_period = @apr / 100 / 12
-        number_periods = @years * 12
-
-        @monthly_payment = (rate_per_period*present_value)/(1 - (1+rate_per_period)**(-number_periods))
+        @loan_payment = LoanPayment.new(
+                                params[:annual_percentage_rate],
+                                params[:number_of_years],
+                                params[:principal_value])
     end
 
     def time_between_form
